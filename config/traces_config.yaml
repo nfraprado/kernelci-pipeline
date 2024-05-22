@@ -1,5 +1,10 @@
 categories:
 
+- name: iommu_dma_sync_sg_for_device
+  tag: reported
+  patterns:
+  - "iommu_dma_sync_sg_for_device"
+
 - name: Test finished
   tag: test
   patterns:
