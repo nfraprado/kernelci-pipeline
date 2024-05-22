@@ -808,3 +808,158 @@ summary-watchdog-reset-failures-mainline-next:
         repos:
           - tree: mainline
           - tree: next
+
+# nfraprado custom section
+nfraprado-build-regressions:
+  metadata:
+    action: summary
+    title: "KernelCI build failures on mainline and next for arm64"
+    template: "generic-regressions.html.jinja2"
+    output_file: "nfraprado/build-regressions.html"
+  preset:
+    regression:
+      - data.error_code: null
+        name__re: kbuild
+        data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-build-failures:
+  metadata:
+    action: summary
+    title: "KernelCI build failures on mainline and next for arm64"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/build-failures.html"
+  preset:
+    kbuild:
+      - data.error_code: null
+        result: fail
+        data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-build-results:
+  metadata:
+    action: summary
+    title: "KernelCI builds on mainline and next for arm64"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/build-results.html"
+  preset:
+    kbuild:
+      - data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+
+nfraprado-boot-regressions:
+  metadata:
+    action: summary
+    title: "KernelCI boot regressions on mainline and next for arm64"
+    template: "generic-regressions.html.jinja2"
+    output_file: "nfraprado/boot-regressions.html"
+  preset:
+    regression:
+      - data.error_code: null
+        group__re: baseline
+        data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-boot-failures:
+  metadata:
+    action: summary
+    title: "KernelCI boot failures on mainline and next for arm64"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/boot-failures.html"
+  preset:
+    test:
+      - data.error_code: null
+        result: fail
+        group__re: baseline
+        data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-boot-results:
+  metadata:
+    action: summary
+    title: "KernelCI boot results on mainline and next for arm64"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/boot-results.html"
+  preset:
+    test:
+      - group__re: baseline
+        data.arch: arm64
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-kselftest-dt-regressions:
+  metadata:
+    action: summary
+    title: "KernelCI kselftest-dt regressions on mainline and next"
+    template: "generic-regressions.html.jinja2"
+    output_file: "nfraprado/kselftest-dt-regressions.html"
+  preset:
+    regression:
+      - data.error_code: null
+        group__re: kselftest-dt
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-kselftest-dt-failures:
+  metadata:
+    action: summary
+    title: "KernelCI kselftest-dt failures on mainline and next"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/kselftest-dt-failures.html"
+  preset:
+    test:
+      - data.error_code: null
+        result: fail
+        group__re: kselftest-dt
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-kselftest-dt-results:
+  metadata:
+    action: summary
+    title: "KernelCI kselftest-dt failures on mainline and next"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/kselftest-dt-results.html"
+  preset:
+    test:
+      - group__re: kselftest-dt
+        repos:
+          - tree: mainline
+          - tree: next
+
+nfraprado-kselftest-logs-results:
+  metadata:
+    action: summary
+    title: "KernelCI kselftest-error-logs results"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/kselftest-logs-results.html"
+  preset:
+    test:
+      - group__re: kselftest-device-error-logs
+
+nfraprado-temp:
+  metadata:
+    action: summary
+    title: "KernelCI kselftest-error-logs results"
+    template: "generic-test-results-oneline.html.jinja2"
+    output_file: "nfraprado/temp.html"
+  preset:
+    job:
+      - data.platform: sc7180-trogdor-lazor-limozeen
+        group__re: baseline
+        data.error_code__ne: null
+>>>>>>> b284169d7259 (Add nfraprado's custom reports)

@@ -1,5 +1,5 @@
 [DEFAULT]
-api_config = "docker-host"
+api_config = "staging"
 storage_config = "docker-host"
 verbose = true
 
