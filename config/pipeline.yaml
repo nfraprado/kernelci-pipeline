@@ -43,6 +43,8 @@ _anchors:
       compiler: clang-17
       cross_compile: 'aarch64-linux-gnu-'
       defconfig: defconfig
+      fragments:
+        - 'lab-setup'
 
   kbuild-clang-17-x86-job: &kbuild-clang-17-x86-job
     <<: *kbuild-job
