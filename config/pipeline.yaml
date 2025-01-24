@@ -2822,6 +2822,13 @@ scheduler:
   - job: kbuild-gcc-12-x86-tinyconfig
     <<: *build-k8s-all
 
+  - job: kselftest-device-error-logs-main
+    event: *kbuild-gcc-12-arm64-node-event
+    runtime: *lava-collabora-runtime
+    platforms:
+      - mt8390-genio-700-evk
+      - mt8395-genio-1200-evk
+
   - job: kselftest-dt
     event: *kbuild-gcc-12-arm64-node-event
     runtime: *lava-collabora-runtime
